@@ -18,7 +18,7 @@
   </head>
   <body>
     <h1>iFrame</h1>
-    
+    <input type='text' id='message' value="Hola!">
     <button id='send-button' class="btn btn-primary">Send message to Google Spreadsheet</button>
 
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
@@ -29,7 +29,9 @@
     <script>
       $(function(){
         $("#send-button").click(function(){
-          parent.postMessage('market-message', "*");
+          var message = $('#message').val();
+          parent.postMessage(message, "*");
+          return true;
         });
       });
     </script>
